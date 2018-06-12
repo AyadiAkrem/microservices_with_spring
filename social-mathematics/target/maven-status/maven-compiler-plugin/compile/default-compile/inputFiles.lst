@@ -1,8 +1,8 @@
-C:\Users\EXG503\Documents\GitHub\Microservices\social-mathematics\src\main\java\com\itdeep\micorservices\socialmathematics\multiplication\service\MultiplicationServiceImpl.java
-C:\Users\EXG503\Documents\GitHub\Microservices\social-mathematics\src\main\java\com\itdeep\micorservices\socialmathematics\multiplication\domain\MultiplicationResultAttempt.java
-C:\Users\EXG503\Documents\GitHub\Microservices\social-mathematics\src\main\java\com\itdeep\micorservices\socialmathematics\multiplication\domain\User.java
-C:\Users\EXG503\Documents\GitHub\Microservices\social-mathematics\src\main\java\com\itdeep\micorservices\socialmathematics\multiplication\service\RandomGeneratorServiceImpl.java
-C:\Users\EXG503\Documents\GitHub\Microservices\social-mathematics\src\main\java\com\itdeep\micorservices\socialmathematics\multiplication\domain\Multiplication.java
-C:\Users\EXG503\Documents\GitHub\Microservices\social-mathematics\src\main\java\com\itdeep\micorservices\socialmathematics\multiplication\service\RandomGeneratorService.java
-C:\Users\EXG503\Documents\GitHub\Microservices\social-mathematics\src\main\java\com\itdeep\micorservices\socialmathematics\multiplication\service\MultiplicationService.java
-C:\Users\EXG503\Documents\GitHub\Microservices\social-mathematics\src\main\java\com\itdeep\micorservices\socialmathematics\SocialMathematicsApplication.java
+C:\Users\EXG503\Documents\GitHub\microservices_with_spring\social-mathematics\src\main\java\com\itdeep\micorservices\socialmathematics\multiplication\domain\Multiplication.java
+C:\Users\EXG503\Documents\GitHub\microservices_with_spring\social-mathematics\src\main\java\com\itdeep\micorservices\socialmathematics\multiplication\controller\MultiplicationController.java
+C:\Users\EXG503\Documents\GitHub\microservices_with_spring\social-mathematics\src\main\java\com\itdeep\micorservices\socialmathematics\multiplication\service\RandomGeneratorService.java
+C:\Users\EXG503\Documents\GitHub\microservices_with_spring\social-mathematics\src\main\java\com\itdeep\micorservices\socialmathematics\multiplication\service\MultiplicationServiceImpl.java
+C:\Users\EXG503\Documents\GitHub\microservices_with_spring\social-mathematics\src\main\java\com\itdeep\micorservices\socialmathematics\multiplication\domain\MultiplicationResultAttempt.java
+C:\Users\EXG503\Documents\GitHub\microservices_with_spring\social-mathematics\src\main\java\com\itdeep\micorservices\socialmathematics\multiplication\domain\User.java
+C:\Users\EXG503\Documents\GitHub\microservices_with_spring\social-mathematics\src\main\java\com\itdeep\micorservices\socialmathematics\multiplication\service\MultiplicationService.java
+C:\Users\EXG503\Documents\GitHub\microservices_with_spring\social-mathematics\src\main\java\com\itdeep\micorservices\socialmathematics\multiplication\service\RandomGeneratorServiceImpl.java
