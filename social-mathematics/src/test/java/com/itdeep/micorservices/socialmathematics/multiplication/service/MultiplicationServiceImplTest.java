@@ -4,7 +4,6 @@ package com.itdeep.micorservices.socialmathematics.multiplication.service;
 import com.itdeep.micorservices.socialmathematics.multiplication.domain.Multiplication;
 import com.itdeep.micorservices.socialmathematics.multiplication.domain.MultiplicationResultAttempt;
 import com.itdeep.micorservices.socialmathematics.multiplication.domain.User;
-import com.itdeep.micorservices.socialmathematics.multiplication.service.RandomGeneratorService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

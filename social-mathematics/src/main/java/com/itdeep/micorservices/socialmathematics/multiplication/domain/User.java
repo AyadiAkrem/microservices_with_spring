@@ -1,7 +1,5 @@
 package com.itdeep.micorservices.socialmathematics.multiplication.domain;
 
-
-
 /**
  * Stores information to identify the user.
  */
