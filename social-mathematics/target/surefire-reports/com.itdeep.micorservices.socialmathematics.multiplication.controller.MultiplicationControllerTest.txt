@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.itdeep.micorservices.socialmathematics.multiplication.controller.MultiplicationControllerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 5.833 s <<< FAILURE! - in com.itdeep.micorservices.socialmathematics.multiplication.controller.MultiplicationControllerTest
+getRandomMultiplicationTest(com.itdeep.micorservices.socialmathematics.multiplication.controller.MultiplicationControllerTest)  Time elapsed: 0.271 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[200]> but was:<[404]>
+	at com.itdeep.micorservices.socialmathematics.multiplication.controller.MultiplicationControllerTest.getRandomMultiplicationTest(MultiplicationControllerTest.java:61)
+

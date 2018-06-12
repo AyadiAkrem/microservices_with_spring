@@ -1,0 +1,5 @@
+com\itdeep\micorservices\socialmathematics\multiplication\service\RandomGeneratorService.class
+com\itdeep\micorservices\socialmathematics\multiplication\domain\Multiplication.class
+com\itdeep\micorservices\socialmathematics\multiplication\service\MultiplicationService.class
+com\itdeep\micorservices\socialmathematics\SocialMathematicsApplication.class
+com\itdeep\micorservices\socialmathematics\multiplication\service\MultiplicationServiceImpl.class
