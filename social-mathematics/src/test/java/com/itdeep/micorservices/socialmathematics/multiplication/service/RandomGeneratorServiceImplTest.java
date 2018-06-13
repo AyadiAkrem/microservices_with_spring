@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -28,8 +29,7 @@ public class RandomGeneratorServiceImplTest {
 
         // then all of them should be between 11 and 100
         // because we want a middle-complexity calculation
-        assertThat(randomFactors).containsOnlyElementsOf(IntStream.range(11, 100)
-                .boxed().collect(Collectors.toList()));
+        assertThat(randomFactors).allMatch(x-> x <=100 &&  x>= 11);
     }
 
 }

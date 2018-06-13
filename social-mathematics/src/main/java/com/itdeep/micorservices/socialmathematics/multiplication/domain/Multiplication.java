@@ -1,7 +1,5 @@
 package com.itdeep.micorservices.socialmathematics.multiplication.domain;
 
-
-
 /**
  * This class represents a Multiplication (a * b).
  */
@@ -28,8 +26,5 @@ public final class Multiplication {
     public int getFactorB() {
         return factorB;
     }
-    
-    
-    
-    
+
 }
