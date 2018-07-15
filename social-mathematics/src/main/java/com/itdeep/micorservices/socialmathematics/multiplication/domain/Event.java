@@ -6,31 +6,31 @@ package com.itdeep.micorservices.socialmathematics.multiplication.domain;
  */
 public class Event {
     
-    private final double latitude ;
+    private final Double latitude ;
     
-    private final double longitude ;
+    private final Double longitude ;
     
-    private final int within ;
+    private final Integer within ;
 
-    public Event(double latitude, double longitude, int within) {
+    public Event(Double latitude, Double longitude, Integer within) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.within = within;
     }
 
     public Event() {
-        this(0,0,0);
+        this(null,null,null);
     }
 
-    public double getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public double getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public int getWithin() {
+    public Integer getWithin() {
         return within;
     }
     

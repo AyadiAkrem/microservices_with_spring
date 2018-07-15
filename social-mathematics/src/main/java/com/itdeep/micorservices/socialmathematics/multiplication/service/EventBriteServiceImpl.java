@@ -19,8 +19,16 @@ public class EventBriteServiceImpl implements EventBriteService {
     @Override
     public List<EventResult> searchEvent(Event event) {
 
-        final String parameters = String.format("location.latitude=%s&location.longitude=%s&location.within=%skm", event.getLatitude(),event.getLongitude(),event.getWithin());
-        final String uri = "https://www.eventbriteapi.com/v3/events/search/?" + parameters ;
+        final String parameters;
+        if (event.getLatitude() == null
+                || event.getLongitude() == null
+                || event.getWithin() == null) {
+            parameters = "";
+        } else {
+            parameters = String.format("/?location.latitude=%s&location.longitude=%s&location.within=%skm", event.getLatitude(), event.getLongitude(), event.getWithin());
+
+        }
+        final String uri = "https://www.eventbriteapi.com/v3/events/search" + parameters;
 
         RestTemplate restTemplate = new RestTemplate();
         try {
@@ -28,22 +36,22 @@ public class EventBriteServiceImpl implements EventBriteService {
             HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
             ResponseEntity<Object> response = restTemplate.exchange(uri, HttpMethod.GET, entity, Object.class);
             System.out.println("Result - status (" + response.getStatusCode() + ") has body: " + response.hasBody());
-            final LinkedHashMap body = (LinkedHashMap)response.getBody();
+            final LinkedHashMap body = (LinkedHashMap) response.getBody();
             final List<Object> events = (List) body.get("events");
-            return  events.stream().map(LinkedHashMap.class::cast).map(evt -> convertToEvent(evt))
+            return events.stream().map(LinkedHashMap.class::cast).map(evt -> convertToEvent(evt))
                     .collect(Collectors.toList());
-                    
+
         } catch (Exception eek) {
             System.out.println("** Exception: " + eek.getMessage());
         }
         return null;
     }
-    
-    private  EventResult convertToEvent(LinkedHashMap map){
+
+    private EventResult convertToEvent(LinkedHashMap map) {
         String name = (String) ((LinkedHashMap) map.get("name")).get("text");
-        String id  =  (String) map.get("id");
-        String locale  =  (String) map.get("locale");
-        String description = (String)((LinkedHashMap) map.get("description")).get("text");
+        String id = (String) map.get("id");
+        String locale = (String) map.get("locale");
+        String description = (String) ((LinkedHashMap) map.get("description")).get("text");
         return new EventResult(name, id, locale, description);
     }
 

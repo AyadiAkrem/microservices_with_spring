@@ -35,7 +35,7 @@ final class SearchFromEventBriteController {
         this.eventBriteService = eventBriteService;
     }
 
-    @GetMapping("/event")
+    @GetMapping("/events")
     List<EventResult> search(@RequestParam(value = "latitude") String latitude,
             @RequestParam(value = "longitude") String longitude,
             @RequestParam(value = "within") String within) {
@@ -44,6 +44,13 @@ final class SearchFromEventBriteController {
         return eventBriteService.searchEvent(new Event(Double.parseDouble(latitude),
                  Double.parseDouble(longitude),
                 Integer.parseInt(within)));
+    }
+    
+    @GetMapping("/event")
+    List<EventResult> search() {
+
+        System.out.println("Default search" );
+        return eventBriteService.searchEvent(new Event());
     }
 
 }
