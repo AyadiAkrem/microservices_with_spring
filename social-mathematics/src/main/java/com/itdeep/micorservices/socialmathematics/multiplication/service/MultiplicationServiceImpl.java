@@ -1,9 +1,7 @@
 package com.itdeep.micorservices.socialmathematics.multiplication.service;
 
-
 import com.itdeep.micorservices.socialmathematics.multiplication.domain.Multiplication;
 import com.itdeep.micorservices.socialmathematics.multiplication.domain.MultiplicationResultAttempt;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,7 +9,11 @@ final class MultiplicationServiceImpl implements MultiplicationService {
 
     private RandomGeneratorService randomGeneratorService;
 
-    @Autowired
+    /**
+     *
+     * @param randomGeneratorService will be injected automatically by Spring as
+     * long as this class have only this constructor
+     */
     public MultiplicationServiceImpl(final RandomGeneratorService randomGeneratorService) {
         this.randomGeneratorService = randomGeneratorService;
     }
@@ -25,10 +27,9 @@ final class MultiplicationServiceImpl implements MultiplicationService {
 
     @Override
     public boolean checkAttempt(final MultiplicationResultAttempt resultAttempt) {
-        return resultAttempt.getResultAttempt() ==
-                resultAttempt.getMultiplication().getFactorA() *
-                resultAttempt.getMultiplication().getFactorB();
+        return resultAttempt.getResultAttempt()
+                == resultAttempt.getMultiplication().getFactorA()
+                * resultAttempt.getMultiplication().getFactorB();
     }
 
-    
 }

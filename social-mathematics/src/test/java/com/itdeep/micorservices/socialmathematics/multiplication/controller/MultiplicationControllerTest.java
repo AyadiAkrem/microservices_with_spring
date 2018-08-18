@@ -26,8 +26,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 /**
+ * SpringRunner tells JUnit to run using Spring's testing support. it is the new
+ * name for SpringJUnit4ClassRunner
  *
- * @author EXG503
+ * Using @WebMvcTest, HTTP requests and responses will be mocked so the real
+ * connections are not created.
+ *
+ * @author AYADI Akrem
  */
 @RunWith(SpringRunner.class)
 @WebMvcTest(MultiplicationController.class)
@@ -59,7 +64,7 @@ public class MultiplicationControllerTest {
                 .andReturn().getResponse();
         //then 
         Assertions.assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
-        Assertions.assertThat(response.getContentAsString()).isEqualTo(json.write(new Multiplication(70, 20)));
+        Assertions.assertThat(response.getContentAsString()).isEqualTo(json.write(new Multiplication(70, 29)).getJson());
     }
 
 }

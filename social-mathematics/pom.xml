@@ -5,8 +5,8 @@
 
 	<groupId>com.itdeep.micorservices</groupId>
 	<artifactId>social-mathematics</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	
+	<packaging>war</packaging>
 
 	<name>social-mathematics</name>
 	<description>Social mathematics App to introduce the spring boot</description>
