@@ -5,6 +5,7 @@ import com.itdeep.micorservices.socialmathematics.multiplication.domain.Multipli
 import com.itdeep.micorservices.socialmathematics.multiplication.domain.User;
 import com.itdeep.micorservices.socialmathematics.multiplication.repository.MultiplicationResultAttemptRepository;
 import com.itdeep.micorservices.socialmathematics.multiplication.repository.UserRepository;
+import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,6 +65,11 @@ class MultiplicationServiceImpl implements MultiplicationService {
         // Stores the attempt
         attemptRepository.save(checkedAttempt);
         return isCorrect;
+    }
+    
+     @Override
+    public List<MultiplicationResultAttempt> getStatsForUser(String userAlias) {
+        return attemptRepository.findTop5ByUserAliasOrderByIdDesc(userAlias);
     }
 
 }
