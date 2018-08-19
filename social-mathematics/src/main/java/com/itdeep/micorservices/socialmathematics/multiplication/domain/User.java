@@ -1,13 +1,22 @@
 package com.itdeep.micorservices.socialmathematics.multiplication.domain;
 
-import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  * Stores information to identify the user.
  */
-public final class User  {
+@Entity
+public class User {
 
     private final String alias;
+
+    @Id
+    @GeneratedValue
+    @Column(name = "USER_ID")
+    private Long id;
 
     // Empty constructor for JSON (de)serialization
     protected User() {
@@ -21,7 +30,15 @@ public final class User  {
     public String getAlias() {
         return alias;
     }
-    
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     
     
 }
