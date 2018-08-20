@@ -3,6 +3,8 @@ package com.itdeep.micorservices.socialmathematics.multiplication.service;
 import com.itdeep.micorservices.socialmathematics.multiplication.domain.Multiplication;
 import com.itdeep.micorservices.socialmathematics.multiplication.domain.MultiplicationResultAttempt;
 import com.itdeep.micorservices.socialmathematics.multiplication.domain.User;
+import com.itdeep.micorservices.socialmathematics.multiplication.event.EventDispatcher;
+import com.itdeep.micorservices.socialmathematics.multiplication.event.MultiplicationSolvedEvent;
 import com.itdeep.micorservices.socialmathematics.multiplication.repository.MultiplicationResultAttemptRepository;
 import com.itdeep.micorservices.socialmathematics.multiplication.repository.UserRepository;
 import java.util.List;
@@ -15,10 +17,11 @@ import org.springframework.util.Assert;
 @Service
 class MultiplicationServiceImpl implements MultiplicationService {
 
-    private RandomGeneratorService randomGeneratorService;
+    private final RandomGeneratorService randomGeneratorService;
 
-    private MultiplicationResultAttemptRepository attemptRepository;
-    private UserRepository userRepository;
+    private final MultiplicationResultAttemptRepository attemptRepository;
+    private final UserRepository userRepository;
+    private final EventDispatcher eventDispatcher;
 
     /**
      * @param randomGeneratorService will be injected automatically by Spring as
@@ -29,10 +32,12 @@ class MultiplicationServiceImpl implements MultiplicationService {
     @Autowired
     public MultiplicationServiceImpl(final RandomGeneratorService randomGeneratorService,
             final MultiplicationResultAttemptRepository attemptRepository,
-            final UserRepository userRepository) {
+            final UserRepository userRepository,
+            final EventDispatcher eventDispatcher) {
         this.randomGeneratorService = randomGeneratorService;
         this.attemptRepository = attemptRepository;
         this.userRepository = userRepository;
+        this.eventDispatcher = eventDispatcher;
     }
 
     @Override
@@ -64,10 +69,17 @@ class MultiplicationServiceImpl implements MultiplicationService {
         );
         // Stores the attempt
         attemptRepository.save(checkedAttempt);
+        // Communicates the result via Event
+        eventDispatcher.send(
+                new MultiplicationSolvedEvent(checkedAttempt.getId(),
+                        checkedAttempt.getUser().getId(),
+                        checkedAttempt.isCorrect())
+        );
+
         return isCorrect;
     }
-    
-     @Override
+
+    @Override
     public List<MultiplicationResultAttempt> getStatsForUser(String userAlias) {
         return attemptRepository.findTop5ByUserAliasOrderByIdDesc(userAlias);
     }
