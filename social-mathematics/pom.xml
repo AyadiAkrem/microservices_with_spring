@@ -52,7 +52,15 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        
+        <!-- AMQP Libraries -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
     </dependencies>
+    
+ 
 
     <build>
         <plugins>
@@ -64,9 +72,6 @@
     </build>
 </project>
 <settings>
-
-    <!-- ... other settings here ... -->
-
     <profiles>
         <profile>
             <id>downloadSources</id>
