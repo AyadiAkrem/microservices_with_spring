@@ -24,6 +24,14 @@ public final class LeaderBoardRow {
         this.userId = userId;
         this.totalScore = totalScore;
     }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public Long getTotalScore() {
+        return totalScore;
+    }
     
     
 }

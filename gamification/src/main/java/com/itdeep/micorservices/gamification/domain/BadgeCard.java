@@ -9,14 +9,16 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 /**
+ * This class links a Badge to a User. Contains also a timestamp with the moment
+ * in which the user got it.
  *
- * @author od
+ * @author Akrem AYADI
  */
 @Entity
-public  class BadgeCard {
+public class BadgeCard {
 
     @Id
     @GeneratedValue
@@ -34,7 +36,6 @@ public  class BadgeCard {
         this.badge = badge;
     }
 
-    
     // Empty constructor for JSON / JPA
     public BadgeCard() {
         this(null, null, 0, null);
@@ -92,7 +93,5 @@ public  class BadgeCard {
     public Badge getBadge() {
         return badge;
     }
-    
-    
 
 }
